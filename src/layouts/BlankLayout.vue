@@ -1,10 +1,11 @@
-`
 <script setup>
 
 </script>
 
 <template>
-    <component :is="$route.meta.layout"/>
+<div class="container-fluid">
+    <router-view/>
+</div>
 </template>
 
 <style scoped>

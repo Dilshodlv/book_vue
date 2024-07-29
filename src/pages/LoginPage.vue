@@ -1,10 +1,9 @@
-`
 <script setup>
 
 </script>
 
 <template>
-    <component :is="$route.meta.layout"/>
+    <div class="bg-warning">Login Sahifasi</div>
 </template>
 
 <style scoped>
