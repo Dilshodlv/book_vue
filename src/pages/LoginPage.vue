@@ -2,7 +2,11 @@
 import FormInput from "@/components/tags/FormInput.vue";
 import FormButton from "@/components/tags/FormButton.vue";
 import {reactive, ref} from "vue";
-import axios from 'axios';
+import {useAuthorization} from "@/stores/user/authorization.js";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
+console.log(router)
 
 let isLoading = ref(false);
 let authorization = reactive({
@@ -11,16 +15,12 @@ let authorization = reactive({
 });
 
 function auth() {
-    isLoading = true;
-    axios.post('http://localhost:8080/api/users/auth', authorization)
-        .then((res) => {
-            console.log('Token muvaffqiyatli olindi')
-            localStorage.setItem('token', res.data.token)
+    isLoading.value = true;
+    useAuthorization().userAuth(authorization)
+        .then(() => {
+            router.push('/')
         })
-        .catch((error) => {
-            console.log('Token olishda xatolik')
-            console.log(error)
-        })
+
 }
 </script>
 
