@@ -2,11 +2,10 @@
 import FormInput from "@/components/tags/FormInput.vue";
 import FormButton from "@/components/tags/FormButton.vue";
 import {reactive, ref} from "vue";
-import {useAuthorization} from "@/stores/user/authorization.js";
+import {userAuthorization} from "@/stores/user/authorization.js";
 import {useRouter} from "vue-router";
 
 const router = useRouter()
-console.log(router)
 
 let isLoading = ref(false);
 let authorization = reactive({
@@ -16,7 +15,7 @@ let authorization = reactive({
 
 function auth() {
     isLoading.value = true;
-    useAuthorization().userAuth(authorization)
+    userAuthorization().userAuth(authorization)
         .then(() => {
             router.push('/')
         })

@@ -1,22 +1,24 @@
-import {defineStore} from 'pinia'
-import {client} from "@/plugins/axios.js";
+import {defineStore} from "pinia";
+import axios from "axios";
 
-export const useAuthorization = defineStore(
-    'authorization', () => {
+export const userAuthorization = defineStore(
+    "authorization", () => {
+
         function userAuth(data) {
             return new Promise((resolve, reject) => {
-                client.post('users/auth', data)
+                axios.post('http://localhost:8507/api/users/auth', data)
                     .then((res) => {
                         console.log('Token muvaffaqiyatli olindi')
                         localStorage.setItem('token', res.data.token)
                         resolve()
                     })
                     .catch((error) => {
-                        console.log('Token olinishda xatolik')
+                        console.log('token olishda xatolik')
                         console.log(error)
                         reject()
                     })
             })
         }
+
         return {userAuth}
     })
