@@ -1,23 +1,22 @@
 <script setup>
 
+import {useRoute} from "vue-router";
+import {useFetchbook} from "@/stores/book/getBook.js";
+import {computed} from "vue";
+
+const route = useRoute()
+console.log(route)
+const bookStore = useFetchbook()
+
+bookStore.booksGet(route.params.bookId)
+const book = computed( () => bookStore.state)
 </script>
 
 <template>
-<h1>O'tkan kunlar</h1>
-
-    <h6>O'tkan kunlar - asari bu Abdulla Qodiriyning eng shox asarlaridan
-        va bu asar osha davrning hayotini yoritib bergan
-    </h6>
-
-    <h6>
-        Otabek va Kumushning ayanchli sevgi tarixi
-    </h6>
+    <h1> {{book.name}}</h1>
 
     <p>
-        Adajwebfiouq ewubasfdb ulihelhsb Adfkljcnjqwebl jhfiukbhefuwb
-        ewrhqbqewoiy ughituqwhu ithqerwpugpuewrh touqrohgor hgouqrehuog
-        qerlkjg hqeriouhgpiu ernbg irehbgirehgqi phgpireghiureghqu dasd
-        wejklhf gewqouyghfiu ehwguifhweiu hgfoiuerhguiehrnuighui asds hui
+        {{book.text}}
     </p>
 </template>
 

@@ -4,7 +4,7 @@ import {client} from "@/plugins/axios.js";
 export const useCreateBook = defineStore(
     'create-book', () => {
 
-        function createBook(data) {
+        function bookCreate(data) {
             return new Promise((resolve, reject) => {
                 client.post('books', data)
                     .then((res) => {
@@ -18,5 +18,5 @@ export const useCreateBook = defineStore(
             })
         }
 
-        return {createBook}
+        return {bookCreate}
     })

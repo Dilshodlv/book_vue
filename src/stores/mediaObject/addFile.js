@@ -9,7 +9,7 @@ export const useAddFile = defineStore(
             file.append('file', data)
 
             return new Promise((resolve,reject) =>{
-                client.post('media-objects', file)
+                client.post('media_objects', file)
                     .then((res) => {
                         console.log('Fayl muvaffaqiyatli yuklandi')
                         resolve(res)

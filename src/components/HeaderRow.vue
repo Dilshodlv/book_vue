@@ -1,11 +1,14 @@
 <script setup>
 import {useRouter} from "vue-router";
+let isAdmin = () => JSON.parse(atob(localStorage.getItem('token').split('.')[1])).roles.includes("ROLE_ADMIN")
+
 
 const router = useRouter()
 
 function logout() {
     localStorage.removeItem('token')
     router.push('/login')
+    location.assign('login')
 }
 </script>
 
@@ -37,11 +40,16 @@ function logout() {
                                         Kategoriya yaratish
                                     </router-link>
                                 </li>
-                                <lic class="nav-item" >
+                                <li class="nav-item" >
                                     <router-link class="nav-link" to="/create-book">
                                         Kitob yaratish
                                     </router-link>
-                                </lic>
+                                </li>
+                                <li v-if="isAdmin" class="nav-item">
+                                    <router-link  to="/admin-page" class="nav-link" >
+                                        Admin sahifa
+                                    </router-link>
+                                </li>
                                 <li class="nav-item">
                                     <router-link @click="logout()" class="nav-link" to="/login">Chiqish</router-Link>
                                 </li>
