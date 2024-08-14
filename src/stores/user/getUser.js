@@ -3,7 +3,7 @@ import {client} from "@/plugins/axios.js";
 import {reactive} from "vue";
 
 export const useFetchUsers = defineStore(
-    "fetch-Users", () => {
+    "fetchUsers", () => {
         const state = reactive({
             users: [],
             totalItems:0,
@@ -19,7 +19,7 @@ export const useFetchUsers = defineStore(
                         console.log('Foydalanuvchilar muvaffaqiyatli olindi')
                         state.users = res.data['hydra:member']
                         state.totalItems = res.data['hydra:totalItems']
-                        state.pageCount = Math.ceil(state.totalItems / 10)
+                        state.pageCount = Math.ceil(state.totalItems / 5)
                         resolve()
                     })
                     .catch((error) => {
@@ -30,5 +30,5 @@ export const useFetchUsers = defineStore(
             })
         }
 
-        return {userAuth}
+        return {usersGet,state}
     })

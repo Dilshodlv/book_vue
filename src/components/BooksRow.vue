@@ -1,8 +1,9 @@
 <script setup>
 
 import {useFetchBooks} from "@/stores/book/getBooks.js";
-import {computed, watch} from "vue";
+import {computed, ref, watch} from "vue";
 import {useRoute} from "vue-router";
+
 
 useFetchBooks().booksGet()
 const books = computed( () => useFetchBooks().state.books)

@@ -31,8 +31,9 @@ function auth() {
                 <FormInput v-model="authorization.email" props-id="email" input-type="email" label-name="Email"/>
                 <FormInput v-model="authorization.password" props-id="password" input-type="password"
                            label-name="Parol"/>
-                <div class="text-end">
-                    <FormButton @click="auth()" :loading="isLoading" name="Kirish" class="btn-primary"/>
+                <div class="d-flex justify-content-between">
+                    <FormButton @click="auth()" :loading="isLoading" name="Kirish" class="btn-primary "/>
+                    <router-link class="btn btn-outline-info" to="registration">Royhatdan o'tish</router-link>
                 </div>
             </form>
         </div>
