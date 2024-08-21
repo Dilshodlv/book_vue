@@ -51,6 +51,11 @@ function logout() {
                                     </router-link>
                                 </li>
                                 <li class="nav-item">
+                                    <router-link to="/cabinet-page" class="nav-link" >
+                                        Kabinet
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
                                     <router-link @click="logout()" class="nav-link" to="/login">Chiqish</router-Link>
                                 </li>
                             </ul>
