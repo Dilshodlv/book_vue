@@ -86,6 +86,14 @@ const routes = [
         beforeEnter: ifAuthorized
     },
     {
+        path: '/cabinet-page',
+        component: () => import('@/pages/CabinetPage.vue'),
+        meta: {
+            layout: defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
+        },
+        beforeEnter: ifAuthorized
+    },
+    {
         path: '/registration',
         component: () => import('@/pages/RegistrationPage.vue'),
         meta: {
