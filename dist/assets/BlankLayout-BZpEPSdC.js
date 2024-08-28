@@ -1,1 +1,0 @@
-import{_ as o,e as t,o as c,c as n,i as r}from"./index-DIzzULu7.js";const s={},a={class:"container-fluid"};function _(i,l){const e=t("router-view");return c(),n("div",a,[r(e)])}const f=o(s,[["render",_]]);export{f as default};

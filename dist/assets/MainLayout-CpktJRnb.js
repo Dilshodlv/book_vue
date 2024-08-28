@@ -1,1 +1,0 @@
-import{_ as t,F as r}from"./HeaderRow-CYcvBHYI.js";import{e as a,o as s,c as n,i as e}from"./index-DIzzULu7.js";const c={class:"container-fluid"},l={__name:"MainLayout",setup(_){return(i,m)=>{const o=a("router-view");return s(),n("div",c,[e(t),e(o),e(r)])}}};export{l as default};

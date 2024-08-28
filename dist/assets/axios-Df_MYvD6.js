@@ -1,1 +1,0 @@
-import{a as t}from"./axios-B4uVmeYG.js";t.interceptors.request.use(e=>(e.headers.Authorization="Bearer "+localStorage.getItem("token"),e.headers["Content-Type"]="application/json",e.headers["Content-Type"]="application/ld+json",e.baseURL="http://localhost:8507/api/",e));
